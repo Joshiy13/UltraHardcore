@@ -7,15 +7,16 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.Difficulty;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 
 public class Ultrahardcore implements ModInitializer {
     @Override
     public void onInitialize() {
-        ServerTickEvents.START_SERVER_TICK.register(this::onServerTick);
         ServerTickEvents.END_SERVER_TICK.register(this::onServerTickEnd);
+        ServerLifecycleEvents.SERVER_STARTED.register(this::onServerStarted);
     }
 
-    private void onServerTick(MinecraftServer server) {
+    private void onServerStarted(MinecraftServer server) {
         server.getGameRules().get(GameRules.NATURAL_REGENERATION).set(false, server);
         server.setDifficulty(Difficulty.HARD, true);
     }
@@ -30,6 +31,4 @@ public class Ultrahardcore implements ModInitializer {
             }
         });
     }
-
-
 }
