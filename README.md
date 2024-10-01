@@ -1,6 +1,6 @@
 # Ultra Hardcore
 
-A Minecraft mod that makes the game ALOT harder
+A Minecraft mod that makes the game ALOT harder!
 
 
 # Features: 
