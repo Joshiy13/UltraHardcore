@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "ultrahardcore",
+  "version": "${version}",
+  "name": "UltraHardcore",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/ultrahardcore/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "dev.joshiy13.ultrahardcore.client.UltrahardcoreClient"
+    ],
+    "main": [
+      "dev.joshiy13.ultrahardcore.Ultrahardcore"
+    ]
+  },
+  "mixins": [
+    "ultrahardcore.mixins.json",
+    {
+      "config": "ultrahardcore.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
